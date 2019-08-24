@@ -54,7 +54,7 @@ class wait_for_page_load(object):
 
 
 data = json.load(open(os.path.join(dirpath, "credentials.json")))
-data
+# data
 
 
 browser = init_driver()
