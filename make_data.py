@@ -75,16 +75,22 @@ with wait_for_page_load(browser):
     browser.get('https://hh.ru/applicant/negotiations?from=header_new')
     browser.find_element(By.XPATH, '//a[@class="bloko-tabs__item"]').click()
 
+
 o = 0
-
-
 for i in browser.find_elements(By.XPATH, '//*[@class="responses-table-tbody"]//tr[@data-qa="negotiations-item"]'):
-    print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"|@data-qa="negotiations-item-discard"|@data-qa="negotiations-item-viewed"|@data-qa="negotiations-item-not-viewed"]').text)
-    if i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"]'):
-        print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"]').text)
-    elif i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-discard"]'):
-    # o += 1
-    # print(o)
+    # print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"|@data-qa="negotiations-item-discard"|@data-qa="negotiations-item-viewed"|@data-qa="negotiations-item-not-viewed"]').text)
+    # if i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"]'):
+    #     print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"]').text)
+    # elif i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-discard"]'):
+    #     print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-discard"]').text)
+    # elif i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"]'):
+    #     print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"]').text)
+    # elif i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-not-viewed"]'):
+    #     print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-not-viewed"]').text)
+    print(i.find_element(By.XPATH, '//*[@class="responses-table-row__cell"]').get_attribute("data-qa"))
+
+    o += 1
+    print(o)
 
 # //*[@data-qa="negotiations-item-viewed"]|//*[@data-qa="negotiations-item-discard"]|//*[@data-qa="negotiations-item-viewed"]|//*[@data-qa="negotiations-item-not-viewed"]
 # browser.send_keys("0.00000005")
