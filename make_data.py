@@ -67,7 +67,9 @@ with wait_for_page_load(browser):
 
 browser.find_element(By.XPATH, '//input[@name="username"]').send_keys(data['username'])
 browser.find_element(By.XPATH, '//input[@name="password"]').send_keys(data['password'])
-browser.find_element(By.XPATH, '//input[@data-qa="login-submit"]').send_keys(data['password'])
+browser.find_element(By.XPATH, '//input[@data-qa="login-submit"]').click()
+
+browser.get('https://hh.ru/applicant/negotiations?from=header_new')
 
 # browser.send_keys("0.00000005")
 
