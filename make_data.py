@@ -72,13 +72,19 @@ with wait_for_page_load(browser):
     browser.find_element(By.XPATH, '//input[@name="password"]').send_keys(data['password'])
     browser.find_element(By.XPATH, '//input[@data-qa="login-submit"]').click()
 
-browser.get('https://hh.ru/applicant/negotiations?from=header_new')
-browser.find_element(By.XPATH, '//a[@class="bloko-tabs__item"]').click()
+    browser.get('https://hh.ru/applicant/negotiations?from=header_new')
+    browser.find_element(By.XPATH, '//a[@class="bloko-tabs__item"]').click()
+
+o = 0
 
 
-for i in browser.find_elements(By.XPATH, '//*[@class="responses-table-tbody"]//*[@data-qa="negotiations-item"]'):
-    # status = i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"|@data-qa="negotiations-item-discard"|@data-qa="negotiations-item-viewed"|@data-qa="negotiations-item-not-viewed"]').text
-    print(i)
+for i in browser.find_elements(By.XPATH, '//*[@class="responses-table-tbody"]//tr[@data-qa="negotiations-item"]'):
+    print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"|@data-qa="negotiations-item-discard"|@data-qa="negotiations-item-viewed"|@data-qa="negotiations-item-not-viewed"]').text)
+    if i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"]'):
+        print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"]').text)
+    elif i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"]'):
+    # o += 1
+    # print(o)
 
 # //*[@data-qa="negotiations-item-viewed"]|//*[@data-qa="negotiations-item-discard"]|//*[@data-qa="negotiations-item-viewed"]|//*[@data-qa="negotiations-item-not-viewed"]
 # browser.send_keys("0.00000005")
