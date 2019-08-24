@@ -65,8 +65,8 @@ with wait_for_page_load(browser):
     browser.get('http://hh.ru')
 
 
-browser.find_element(By.XPATH, '//input[@name="username"]').send_keys("")
-browser.find_element(By.XPATH, '//input[@name="password"]').send_keys("")
+browser.find_element(By.XPATH, '//input[@name="username"]').send_keys(data['username'])
+browser.find_element(By.XPATH, '//input[@name="password"]').send_keys(data['password'])
 
 # browser.send_keys("0.00000005")
 
