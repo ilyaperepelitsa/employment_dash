@@ -13,8 +13,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
 
-
-
 def init_driver():
     path_to_chromedriver = "chromedriver"
     driver = webdriver.Chrome(executable_path = path_to_chromedriver)
