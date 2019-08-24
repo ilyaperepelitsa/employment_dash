@@ -72,7 +72,11 @@ browser.find_element(By.XPATH, '//input[@data-qa="login-submit"]').click()
 browser.get('https://hh.ru/applicant/negotiations?from=header_new')
 browser.find_element(By.XPATH, '//a[@class="bloko-tabs__item"]').click()
 
-"//*[@class="responses-table-tbody"]"//*[@data-qa="negotiations-item"]
+
+for i in browser.find_elements(By.XPATH, '//*[@class="responses-table-tbody"]//*[@data-qa="negotiations-item"]'):
+    try:
+        i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"|@data-qa="negotiations-item-viewed"]').text
+
 
 
 # browser.send_keys("0.00000005")
