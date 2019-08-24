@@ -70,7 +70,9 @@ browser.find_element(By.XPATH, '//input[@name="password"]').send_keys(data['pass
 browser.find_element(By.XPATH, '//input[@data-qa="login-submit"]').click()
 
 browser.get('https://hh.ru/applicant/negotiations?from=header_new')
-browser.find_element(By.XPATH, '//input[@class="bloko-tabs__item"]').click()
+browser.find_element(By.XPATH, '//a[@class="bloko-tabs__item"]').click()
+
+"//*[@class="responses-table-tbody"]"
 
 
 # browser.send_keys("0.00000005")
