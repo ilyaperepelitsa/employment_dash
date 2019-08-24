@@ -80,9 +80,9 @@ o = 0
 
 for i in browser.find_elements(By.XPATH, '//*[@class="responses-table-tbody"]//tr[@data-qa="negotiations-item"]'):
     print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"|@data-qa="negotiations-item-discard"|@data-qa="negotiations-item-viewed"|@data-qa="negotiations-item-not-viewed"]').text)
-    if i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"]'):
-        print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"]').text)
-    elif i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"]'):
+    if i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"]'):
+        print(i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-invite"]').text)
+    elif i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-discard"]'):
     # o += 1
     # print(o)
 
