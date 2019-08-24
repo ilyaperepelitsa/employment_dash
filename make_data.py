@@ -65,9 +65,12 @@ with wait_for_page_load(browser):
     browser.get('http://hh.ru')
 
 
-browser.find_element(By.XPATH, '//input[@name="username"]').send_keys(data['username'])
-browser.find_element(By.XPATH, '//input[@name="password"]').send_keys(data['password'])
-browser.find_element(By.XPATH, '//input[@data-qa="login-submit"]').click()
+with wait_for_page_load(browser):
+    # browser.find_element_by_link_text('my link').click()
+    # browser.get('http://hh.ru')
+    browser.find_element(By.XPATH, '//input[@name="username"]').send_keys(data['username'])
+    browser.find_element(By.XPATH, '//input[@name="password"]').send_keys(data['password'])
+    browser.find_element(By.XPATH, '//input[@data-qa="login-submit"]').click()
 
 browser.get('https://hh.ru/applicant/negotiations?from=header_new')
 browser.find_element(By.XPATH, '//a[@class="bloko-tabs__item"]').click()
@@ -75,7 +78,7 @@ browser.find_element(By.XPATH, '//a[@class="bloko-tabs__item"]').click()
 
 for i in browser.find_elements(By.XPATH, '//*[@class="responses-table-tbody"]//*[@data-qa="negotiations-item"]'):
     # status = i.find_element(By.XPATH, '//*[@data-qa="negotiations-item-viewed"|@data-qa="negotiations-item-discard"|@data-qa="negotiations-item-viewed"|@data-qa="negotiations-item-not-viewed"]').text
-    print(ш)
+    print(i)
 
 # //*[@data-qa="negotiations-item-viewed"]|//*[@data-qa="negotiations-item-discard"]|//*[@data-qa="negotiations-item-viewed"]|//*[@data-qa="negotiations-item-not-viewed"]
 # browser.send_keys("0.00000005")
